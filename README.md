@@ -76,8 +76,9 @@ AdminQuestionnaireContent<br/>
 AdminQuestionnaireList<br/>
 系統問卷列表		該管理員的問卷一覽，可搜索、ADD鍵按下可修改問卷基本內容、表上按鍵皆可帶各ID進去、刪除功能需點擊勾勾方可刪除	
 
-AdminQuestionnaireQuestion<br/>
-系統問卷問題		輸入上空格並按下加入鍵可加入問題、加入問題會直接從表下加入(無論該表原值)	常用問題無可用功能(僅可設定為常用)、加入太多SESSION
+AdminQuestionnaireQuestion (未完成)   <br/>
+系統問卷問題		輸入上空格並按下加入鍵可加入問題、加入問題會直接從表下加入(無論該表原值)	常用問題無可用功能(僅可設定為常用)、加入太多SESSION<br/>
+上列敘述為原本出現功能，但我新增模式只做到一半所以功能皆無法執行
 
 AdminQuestionnaireStatistics<br/>
 系統問卷問題統計		將資料庫表中以出現次數做計算呈百分比列出	
