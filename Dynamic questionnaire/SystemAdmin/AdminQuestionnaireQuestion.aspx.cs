@@ -458,70 +458,71 @@ namespace Dynamic_questionnaire.SystemAdmin
                         this.plcNoData.Visible = true;
                     }
                 }
-                else//無資料進入模式
-                {
-                    DBModels.Question model = new DBModels.Question();
-                    string[] qid;
-                    string[] arrayQid;
-                    int intProID = 1;
+                #region 全新新增模式(未完)
+                //else//無資料進入模式
+                //{
+                //    DBModels.Question model = new DBModels.Question();
+                //    string[] qid;
+                //    string[] arrayQid;
+                //    int intProID = 1;
 
-                    if (dt.Rows.Count > 0)
-                    {
-                        strqid = dt.Rows[_list.Count - 1]["QuestionID"].ToString();
-                        qid = strqid.Split('-');
-                        arrayQid = qid.Where(s => !string.IsNullOrEmpty(s)).ToArray();//去空,必為0,1
-                        intProID = Convert.ToInt32(arrayQid[1])+1;
-                    }
-                    else//0筆全新資料
-                    {
-                        strLastQuestionID = DB.DBHelper.GetLastQuestionID();
+                //    if (dt.Rows.Count > 0)
+                //    {
+                //        strqid = dt.Rows[_list.Count - 1]["QuestionID"].ToString();
+                //        qid = strqid.Split('-');
+                //        arrayQid = qid.Where(s => !string.IsNullOrEmpty(s)).ToArray();//去空,必為0,1
+                //        intProID = Convert.ToInt32(arrayQid[1])+1;
+                //    }
+                //    else//0筆全新資料
+                //    {
+                //        strLastQuestionID = DB.DBHelper.GetLastQuestionID();
 
-                        qid = strLastQuestionID.Split('-');
-                        arrayQid = qid.Where(s => !string.IsNullOrEmpty(s)).ToArray();//去空,必為0,1
-                        intProID = 1;
+                //        qid = strLastQuestionID.Split('-');
+                //        arrayQid = qid.Where(s => !string.IsNullOrEmpty(s)).ToArray();//去空,必為0,1
+                //        intProID = 1;
 
-                        this.plcNoData.Visible = false;
-                        this.gvQuestionnaireQuestionList.Visible = true;
-                    }
+                //        this.plcNoData.Visible = false;
+                //        this.gvQuestionnaireQuestionList.Visible = true;
+                //    }
 
-                    int intQuestionID = Convert.ToInt32(arrayQid[0]) + 1;//增號後題號
-                    string strQuestID = intQuestionID + "-" + intProID;
+                //    int intQuestionID = Convert.ToInt32(arrayQid[0]) + 1;//增號後題號
+                //    string strQuestID = intQuestionID + "-" + intProID;
 
-                    model.QuestionID = strQuestID;
+                //    model.QuestionID = strQuestID;
 
-                    model.QuestionnaireTitle = (string)questionnairename;
-                    model.ProblemID = (int)intProID;
-                    model.ProblemTitle = (string)ProblemTitle;
-                    model.TypeOfProblem = (int)Convert.ToInt32(Type);
-                    model.Required = (bool)Required;
-                    model.FrequentlyAsked = (bool)(Convert.ToInt32(frequentlyasked) != 0 ? true : false);
-                    model.Ans1 = _arrayAns[0].ToString();
-                    model.Ans2 = _arrayAns[1].ToString();
-                    model.Ans3 = _arrayAns[2].ToString();
-                    model.Ans4 = _arrayAns[3].ToString();
-                    model.Ans5 = _arrayAns[4].ToString();
-                    model.Ans6 = _arrayAns[5].ToString();
-                    model.Ans7 = _arrayAns[6].ToString();
-                    model.Ans8 = _arrayAns[7].ToString();
-                    model.Ans9 = _arrayAns[8].ToString();
-                    Session.Add(intQuestionID + "-" + intProID, model); // put into Session
+                //    model.QuestionnaireTitle = (string)questionnairename;
+                //    model.ProblemID = (int)intProID;
+                //    model.ProblemTitle = (string)ProblemTitle;
+                //    model.TypeOfProblem = (int)Convert.ToInt32(Type);
+                //    model.Required = (bool)Required;
+                //    model.FrequentlyAsked = (bool)(Convert.ToInt32(frequentlyasked) != 0 ? true : false);
+                //    model.Ans1 = _arrayAns[0].ToString();
+                //    model.Ans2 = _arrayAns[1].ToString();
+                //    model.Ans3 = _arrayAns[2].ToString();
+                //    model.Ans4 = _arrayAns[3].ToString();
+                //    model.Ans5 = _arrayAns[4].ToString();
+                //    model.Ans6 = _arrayAns[5].ToString();
+                //    model.Ans7 = _arrayAns[6].ToString();
+                //    model.Ans8 = _arrayAns[7].ToString();
+                //    model.Ans9 = _arrayAns[8].ToString();
+                //    Session.Add(intQuestionID + "-" + intProID, model); // put into Session
 
-                    hisList.Add(model);
+                //    hisList.Add(model);
 
-                    //_list.AddRange(hisList);
-                    if (hisList.Count > 0)
-                    {
-                        Session.Add("totalList", hisList);
-                        this.gvQuestionnaireQuestionList.DataSource = hisList;
-                        this.gvQuestionnaireQuestionList.DataBind();
-                    }
-                    else
-                    {//沒資料
-                        this.gvQuestionnaireQuestionList.Visible = false;
-                        this.plcNoData.Visible = true;
-                    }
-
-                }
+                //    //_list.AddRange(hisList);
+                //    if (hisList.Count > 0)
+                //    {
+                //        Session.Add("totalList", hisList);
+                //        this.gvQuestionnaireQuestionList.DataSource = hisList;
+                //        this.gvQuestionnaireQuestionList.DataBind();
+                //    }
+                //    else
+                //    {//沒資料
+                //        this.gvQuestionnaireQuestionList.Visible = false;
+                //        this.plcNoData.Visible = true;
+                //    }
+                //}
+                #endregion
             }
         }
         void BANG(List<DBModels.Question> list, out List<DBModels.Question> hisList)

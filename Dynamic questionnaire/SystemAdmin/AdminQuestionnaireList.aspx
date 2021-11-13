@@ -33,7 +33,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button Text="Delete Questionnaire" runat="server" ID="btnDeleteQuestionnaire" OnClientClick="return confirm('Are you sure?');" OnClick="btnDeleteQuestionnaire_Click" />
         <asp:Button Text="常用問題管理" ID="btnUrl" runat="server" OnClick="btnUrl_Click" />
-        <asp:Button ID="Button1" runat="server" Text="TEST" OnClick="Button1_Click" />
+        <%--<asp:Button ID="Button1" runat="server" Text="TEST" OnClick="Button1_Click" />--%>
         <asp:GridView runat="server" ID="gvAccountQuestionnaireList" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="gvtypeQuestionnaire">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -96,8 +96,8 @@
                 No data in your Accounting Note.
             </p>
         </asp:PlaceHolder>
-        <asp:Button Text="取消" align="right" runat="server" />
-        <asp:Button Text="送出" align="right" runat="server" />
+<%--        <asp:Button Text="取消" align="right" runat="server" />
+        <asp:Button Text="送出" align="right" runat="server" />--%>
     </form>
 </body>
 </html>
